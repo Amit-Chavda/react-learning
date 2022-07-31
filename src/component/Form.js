@@ -10,7 +10,6 @@ export default function Form() {
         favCar: ""
     });
 
-    console.log(formData)
     function handleOnChange(event) {
         const { name, value, type, checked } = event.target
         setformData((prev) => {
@@ -19,6 +18,10 @@ export default function Form() {
                 [name]: type === "checkbox" ? checked : value
             }
         })
+    }
+    function handleSubmit(event) {
+        event.preventDefault()
+        console.log(formData)
     }
 
     return (
@@ -109,6 +112,12 @@ export default function Form() {
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
             </select>
+
+            <br />
+            <br />
+            <br />
+
+            <button onClick={handleSubmit}>Submit</button>
         </>
     )
 }
